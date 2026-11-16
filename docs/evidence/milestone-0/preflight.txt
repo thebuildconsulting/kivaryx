@@ -1,0 +1,18 @@
+Review date: 2026-11-16 (UTC timestamps in per-check evidence).
+Requested working directory: /Users/dare/Desktop/xterns/darey-new/kivaryx/kivaryx
+Git root: /Users/dare/Desktop/xterns/darey-new/kivaryx
+Branch: main, unborn; no source commit SHA exists.
+Index: empty (git ls-files produced no tracked files).
+Origin: https://github.com/thebuildconsulting/kivaryx.git
+Remote heads/tags: none returned by git ls-remote --heads --tags origin.
+Remote metadata: isPrivate=false; REST private=false, visibility=public. No visibility change made.
+Initial status: all extracted pack files untracked under kivaryx/; outer .DS_Store and handoff ZIP also untracked.
+Default SQLite file: not tracked; excluded by apps/prototype/.gitignore.
+Review SQLite file and journals: ignored; raw browser captures ignored by **/artifacts/; runtime logs now ignored by *.log.
+Host: macOS 14.5 build 23F79 / Darwin 23.5.0 arm64, not CentOS VM.
+System python3: Python 3.9.6; no python executable on initial PATH.
+Selected existing interpreter: /opt/homebrew/bin/python3.12 -> Python 3.12.11.
+Node: v22.22.0; npm: 10.9.4 (not app runtime dependencies).
+Git: 2.39.3 (Apple Git-146).
+Chrome: 157.0.8103.78; headless product screens checked locally only.
+Mermaid CLI: command -v mmdc returned no executable; not installed; no render/export validation.

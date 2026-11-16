@@ -1,0 +1,15 @@
+---
+title: "CUSTOMER-DESCRIBED FICTIONAL v0.1 - Kivaryx context - M0 2026-11-16"
+---
+flowchart LR
+  Merchant["Fictional merchant users / backend clients"] -->|"Payment requests / reporting over HTTPS - story"| Platform
+  Ops["Fictional internal operators"] -->|"Operations diagnostics - story"| Platform
+  subgraph Company["Kivaryx fictional platform boundary - not a live customer estate"]
+    Platform["Payment orchestration, merchant console and CPU fraud scoring"]
+    Pilot["Read-only assistant pilot - optional story, no local implementation"]
+  end
+  Platform -->|"Payment authorization request - story"| PSP["External PSP boundary - never a real processor in lab"]
+  PSP -->|"Processor result - story"| Platform
+  Platform -->|"Managed compute, data, queues, identity and telemetry - story"| AWS["Fictional AWS dependency boundary"]
+  Ops -.->|"Read-only retrieval - fictional pilot"| Pilot
+  Legend["STORY / E0: docs/company/SERIES_BIBLE.md + BUSINESS_HISTORY.md. No AWS account, real merchant identity, funds, cardholder data or deployed service is evidenced. Arrow directions represent logical use, not verified network routes."]

@@ -1,0 +1,9 @@
+series: THE BUILD - Inside the Infrastructure Review
+season: 1
+company: Kivaryx
+fictional: true
+source_of_truth: docs/company/BUSINESS_HISTORY.md
+publication_manifest: publication/series.yaml
+current_milestone: 0
+runtime_reproducible_kubernetes_baseline: false
+cloud_provisioned: false

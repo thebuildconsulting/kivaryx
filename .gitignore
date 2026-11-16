@@ -1,0 +1,43 @@
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+id_rsa
+id_ed25519
+**/.aws/
+**/.kube/
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
+# Synthetic generated data / exports
+*.sqlite
+*.sqlite3
+*.db
+**/generated/
+**/artifacts/
+**/evidence/raw/
+# Local python and Node
+**/__pycache__/
+*.py[cod]
+**/.venv/
+**/.pytest_cache/
+**/node_modules/
+**/dist/
+**/build/
+# Workstation
+.DS_Store
+*.swp
+
+# Local runtime logs and SQLite journals are generated, not review evidence
+*.log
+*.sqlite3-*
+
+# Retained owner handoff archives are local source material
+/handoff/*.zip

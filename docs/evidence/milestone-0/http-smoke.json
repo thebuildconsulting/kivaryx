@@ -1,0 +1,100 @@
+{
+  "classification": "OBSERVED / E2 local smoke, synthetic data only",
+  "observed_at_utc": "2026-11-16T12:36:07.758170+00:00",
+  "server": "one uvicorn worker, 127.0.0.1:8765",
+  "routes": {
+    "/": {
+      "status": 200,
+      "bytes": 4393
+    },
+    "/app": {
+      "status": 200,
+      "bytes": 5812
+    },
+    "/ops": {
+      "status": 200,
+      "bytes": 4384
+    },
+    "/docs": {
+      "status": 200,
+      "bytes": 1025
+    },
+    "/openapi.json": {
+      "status": 200,
+      "bytes": 5238
+    },
+    "/assets/style.css": {
+      "status": 200,
+      "bytes": 15731
+    },
+    "/assets/app.js": {
+      "status": 200,
+      "bytes": 7731
+    },
+    "/api/healthz": {
+      "status": 200,
+      "bytes": 87
+    },
+    "/api/merchants": {
+      "status": 200,
+      "bytes": 334
+    },
+    "/api/dashboard": {
+      "status": 200,
+      "bytes": 601
+    },
+    "/api/payments": {
+      "status": 200,
+      "bytes": 15210
+    },
+    "/api/architecture": {
+      "status": 200,
+      "bytes": 314
+    },
+    "/api/ops/insights": {
+      "status": 200,
+      "bytes": 547
+    }
+  },
+  "docs_external_assets": [
+    "<link type=\"text/css\" rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css\">",
+    "<link rel=\"shortcut icon\" href=\"https://fastapi.tiangolo.com/img/favicon.png\">",
+    "<script src=\"https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js\"></script>"
+  ],
+  "fresh_seed_summary": {
+    "total": 42,
+    "approved": 34,
+    "approval_rate": 81.0,
+    "counts": {
+      "approved": 34,
+      "declined": 4,
+      "requires_review": 4
+    },
+    "model_version": "risk-simulator-rules-v0.1"
+  },
+  "fresh_database_counts": {
+    "merchants": 3,
+    "transactions": 42,
+    "events": 126
+  },
+  "create_payment": {
+    "status": 200,
+    "synthetic": true,
+    "replayed": false,
+    "transaction_id": "pay_demo_ccb4f4df4778",
+    "request_id": "req_44844cc5ea05",
+    "outcome": "approved",
+    "model_version": "risk-simulator-rules-v0.1"
+  },
+  "created_payment_event_stages": [
+    "payment.created",
+    "risk.scored",
+    "payment.approved"
+  ],
+  "limitations": [
+    "No authentication headers supplied; no security remediation attempted.",
+    "One ordinary payment only; no concurrent/load/fault test.",
+    "Readiness, process restart, distributed traces and recovery not tested.",
+    "Timings and API JSON byte sizes are not latency or throughput benchmarks."
+  ]
+}

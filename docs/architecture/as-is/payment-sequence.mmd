@@ -1,0 +1,29 @@
+---
+title: "CUSTOMER-DESCRIBED FICTIONAL v0.1 - payment sequence - M0 2026-11-16"
+---
+sequenceDiagram
+  autonumber
+  participant M as Fictional merchant
+  participant A as Merchant API - story
+  participant P as Payments orchestrator - story
+  participant F as CPU fraud service - story
+  participant S as External PSP - story; fake only in lab
+  participant D as RDS PostgreSQL - story
+  participant Q as SQS / worker - story
+  Note over M,Q: STORY / E0; not the current local implementation. No real payments, credentials or account data. Atomicity and retry contracts remain unknown.
+  M->>A: Payment request with merchant-scoped key
+  A->>P: Initiation request
+  P->>D: Check recorded idempotency state - claimed intent
+  P->>F: Score request
+  F-->>P: Risk decision and model version - story
+  alt Risk permits processor attempt
+    P->>S: Authorization request
+    S-->>P: Processor result
+  else Review required
+    Note over P,S: Do not attempt processor authorization
+  end
+  P->>D: Record transaction state
+  P->>Q: Publish transaction event - delivery / consistency unspecified
+  P-->>A: Transaction response
+  A-->>M: Response through merchant boundary
+  Note over P,Q: No transactional outbox, exactly-once processing, model accuracy or recovery guarantee is evidenced. Compare local sequence separately.

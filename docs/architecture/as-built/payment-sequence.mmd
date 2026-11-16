@@ -1,0 +1,26 @@
+---
+title: "LOCAL TESTED v0.1 - sequential payment path - M0 2026-11-16"
+---
+sequenceDiagram
+  autonumber
+  participant C as Loopback synthetic client
+  participant A as One FastAPI process - no auth
+  participant R as risk_score local function
+  participant D as SQLite local file
+  Note over C,D: OBSERVED M0-SRC + M0-TEST + M0-HTTP. Synthetic records only. Calls to R are in-process, not HTTP.
+  C->>A: POST /api/payments with merchant, amount, GBP and key
+  A->>D: SELECT merchant then merchant/key transaction
+  alt Existing key and identical payload hash
+    D-->>A: Existing transaction
+    A-->>C: HTTP 200, replayed true, original transaction and request ID
+  else Existing key with different payload hash
+    A-->>C: HTTP 409, key conflict
+  else New key
+    A->>R: Deterministic amount + merchant rules
+    R-->>A: Simulated score and reason
+    Note over A: Decide status locally, assign random IDs and fake provider reference. No processor RPC.
+    A->>D: BEGIN IMMEDIATE; INSERT transaction + 3 events; COMMIT
+    D-->>A: Persisted transaction
+    A-->>C: HTTP 200, synthetic true, replayed false
+  end
+  Note over A,D: Source also handles SQLite uniqueness conflict with rollback and HTTP 409. Concurrent/restart/fault behavior not exercised at M0. Replay SELECT precedes BEGIN IMMEDIATE.

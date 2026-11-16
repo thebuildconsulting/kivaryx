@@ -1,0 +1,21 @@
+{
+  "captured_at_utc": "2026-11-16T12:34:32.849984+00:00",
+  "source_revision": "UNBORN main: no commit SHA exists",
+  "classification": "OBSERVED / E1 source snapshot, not a release",
+  "files": {
+    "apps/prototype/.gitignore": "aa6ca0289e20ed3deade15c173ad11fc8617dc37d11a634b5c1c564f65ab6e73",
+    "apps/prototype/Makefile": "0426cbdff373164518f0e8736535b41219f06734a0c07ed1e32ed2312881f6a0",
+    "apps/prototype/README.md": "32ff131e4106cf12e318a2189b6d446fc281cf2f103764fd393cf3f8cfd8224e",
+    "apps/prototype/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "apps/prototype/app/main.py": "72817504346df74a40be7a2bf3ce171bb154012c4f844451db9bae53ef39898c",
+    "apps/prototype/app/static/app.js": "6f035bce2da3edc77c110b0991a4fba46c48c44b9cd09b0f7125b62e25ac8cc9",
+    "apps/prototype/app/static/dashboard.html": "7f62326e2f6bfbcb7862a2ed888240bfa29fa3a96ebc8a9b77fe32838d7f2ef6",
+    "apps/prototype/app/static/index.html": "0db800173f9c07f25a0236dafb64c7fda21ec8a6d4b0623d36300d2d14cfb75e",
+    "apps/prototype/app/static/ops.html": "eaa13cae6f66a96b617a34ff88b9d594f483836fcb8cf2101ed5d8666ea02f2f",
+    "apps/prototype/app/static/style.css": "00cdc4b1d48aff7297ce466294d707f663bbb3ac8c0d417a5dca7f69cb009535",
+    "apps/prototype/data/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "apps/prototype/requirements-dev.txt": "5c802e914f828e12e7813b2fcab3fdafcc47fdfc344e5d3904c34fc9ada14a96",
+    "apps/prototype/requirements.txt": "4ce992cb306db698126ad3817fd977c1617384033500927da7fc3096d937dd9f",
+    "apps/prototype/tests/test_api.py": "f9be37e71604cc306cbaf41d3eb9503316dbfb21dd4dc2577acf32b5c648ff3e"
+  }
+}

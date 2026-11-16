@@ -1,0 +1,30 @@
+{
+  "completed_at_utc": "2026-11-16T12:55:14.456417+00:00",
+  "final_root": "/Users/dare/Desktop/xterns/darey-new/kivaryx",
+  "root_normalization": "owner-approved; existing Git directory preserved",
+  "prototype_source_files_checked": 14,
+  "prototype_changed_files": [],
+  "tracked_files": [],
+  "ignored_generated_paths": {
+    "apps/prototype/data/kivaryx.sqlite3": true,
+    "apps/prototype/data/milestone0-review.sqlite3": true,
+    "apps/prototype/data/milestone0-review.sqlite3-journal": true,
+    "docs/evidence/milestone-0/uvicorn.log": true,
+    "docs/evidence/milestone-0/artifacts/merchant.png": true,
+    "docs/evidence/milestone-0/artifacts/dependency-install.txt": true,
+    "handoff/THE_BUILD_Kivaryx_Complete_Codex_Handoff_v1.zip": true,
+    ".venv/": true
+  },
+  "api_test_count": 5,
+  "api_tests_status": "verified: original five pass",
+  "http_get_routes_count": 13,
+  "http_status": "verified: all 200; normal create/detail also passed",
+  "browser_status": "verified: desktop render smoke only",
+  "diagram_sources": 7,
+  "diagram_rendering": "unavailable: mmdc not installed; manual source review only",
+  "review_links_broken": [],
+  "server_teardown": "verified: no listener on 127.0.0.1:8765 after stopping review process",
+  "github_visibility_observed": "public: explicitly accepted by owner on 2026-11-16; no settings changed",
+  "milestone_1": "not started",
+  "commits_pushes_tags_settings_changes": "none; index remains empty"
+}

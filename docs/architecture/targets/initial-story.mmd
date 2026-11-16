@@ -1,0 +1,19 @@
+---
+title: "PROPOSED v0.1 - staged local reconstruction - M0 2026-11-16 - NOT IMPLEMENTED"
+---
+flowchart LR
+  Client["Synthetic merchant browser / test client"] -->|"Loopback only"| Web
+  subgraph G1["PROPOSED Gate 1: Compose candidate - needs approval"]
+    Web["Preserved HTML/JS surfaces - frontend framework undecided"] --> Merchant["Merchant API logical boundary"]
+    Merchant --> Payments["Payment orchestrator"]
+    Payments --> Risk["Deterministic CPU scoring - no trained ML"]
+    Payments --> PSP["Fake processor only - no external payment network"]
+    Payments --> Data[("SQLite first, then local PostgreSQL only if approved")]
+    Payments -.->|"Event records; broker/outbox decision pending"| Event["Event module / worker candidate"]
+    Event -.-> Data
+  end
+  G2["PROPOSED Gate 2: kind / probes / resource constraints - separate approval"]
+  Later["PROPOSED later episode profiles: OTel, network-policy alternatives, optional read-only assistant - not baseline installs"]
+  G1 -.->|"After acceptance"| G2
+  G2 -.->|"Question and evidence before tool adoption"| Later
+  Legend["PROPOSED / no runtime claim. Direct code modules are an alternative to services. No GPU, cloud, paid AI, real payment credentials, Argo CD or security remediation is authorised. See MILESTONE_0_REVIEW.md and ADR-0001."]

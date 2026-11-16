@@ -1,0 +1,44 @@
+{
+  "observed_at_utc": "2026-11-16T12:36:08.013349+00:00",
+  "browser": "Google Chrome 157.0.8103.78",
+  "scope": "headless screenshots and rendered DOM; not interactive E2E/accessibility/performance certification",
+  "screens": [
+    {
+      "route": "/",
+      "exit_code": 0,
+      "screenshot_exists": true,
+      "synthetic_disclosure_present": true,
+      "rendered_fields": {},
+      "rendered_payment_rows": 0,
+      "data_loading_error": false,
+      "limitations": "No interactive payment-modal submission performed in browser; HTTP API exercised separately."
+    },
+    {
+      "route": "/app",
+      "exit_code": 0,
+      "screenshot_exists": true,
+      "synthetic_disclosure_present": true,
+      "rendered_fields": {
+        "kpiVolume": "\u00a31,250.97",
+        "kpiApproval": "78.6%",
+        "kpiTransactions": "14",
+        "kpiReview": "2"
+      },
+      "rendered_payment_rows": 14,
+      "data_loading_error": false,
+      "limitations": "No interactive payment-modal submission performed in browser; HTTP API exercised separately."
+    },
+    {
+      "route": "/ops",
+      "exit_code": 0,
+      "screenshot_exists": true,
+      "synthetic_disclosure_present": true,
+      "rendered_fields": {
+        "opsTotal": "43"
+      },
+      "rendered_payment_rows": 43,
+      "data_loading_error": false,
+      "limitations": "No interactive payment-modal submission performed in browser; HTTP API exercised separately."
+    }
+  ]
+}

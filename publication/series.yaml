@@ -1,0 +1,16 @@
+series_id: s01
+company_slug: kivaryx
+company_name: Kivaryx
+fictional: true
+publication_status: not_published
+website_base: https://thebuildconsulting.com
+repository: thebuildconsulting/kivaryx
+type: engineering_lab
+warning: "Fictional educational engineering lab; synthetic data and simulated business. Not a client engagement."
+episodes:
+  - number: 1
+    slug: platform-discovery
+    report: docs/reports/01-initial-platform-review-DRAFT.md
+    release_tag: null
+    youtube_url: null
+    website_url: null

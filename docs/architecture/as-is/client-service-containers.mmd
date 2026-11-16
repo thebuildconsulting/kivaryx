@@ -1,0 +1,20 @@
+---
+title: "CUSTOMER-DESCRIBED FICTIONAL v0.1 - logical containers - M0 2026-11-16"
+---
+flowchart TD
+  Merchant["Fictional merchant browser / client"] --> WEB
+  subgraph Kivaryx["Fictional Kivaryx application boundary - not locally deployed containers"]
+    WEB["Merchant console"] -->|"Merchant HTTP requests"| API["Merchant API"]
+    API -->|"Initiate / query"| PAY["Payments orchestrator"]
+    PAY -->|"Synchronous scoring"| RISK["CPU fraud inference - model is narrative only"]
+    PAY -->|"Synthetic authorization in future lab"| ADAPTER["Processor adapter"]
+    PAY -->|"Transaction persistence"| DB[("RDS PostgreSQL - story")]
+    PAY -->|"Publish event - atomicity unspecified"| QUEUE["SQS - story"]
+    QUEUE -->|"Consume - retry / DLQ unknown"| WORKER["Transaction event worker"]
+    WORKER --> DB
+    WORKER --> EXPORT["S3 audit exports - story"]
+    Ops["Internal operators - role model unknown"] --> API
+    Pilot["Read-only assistant pilot - optional story, absent locally"]
+  end
+  ADAPTER -->|"External processor boundary - story"| PSP["PSP; must be fake in any local reconstruction"]
+  Legend["STORY / E0. Source: company bible + client-described architecture. HTTPS, identity, service auth, queue semantics and trust enforcement are assumptions or unknowns, not measured security controls. All reconstructed records must be synthetic."]

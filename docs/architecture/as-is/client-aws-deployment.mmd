@@ -1,0 +1,29 @@
+---
+title: "CUSTOMER-DESCRIBED FICTIONAL v0.1 - AWS logical deployment - M0 2026-11-16"
+---
+flowchart TD
+  Merchant["Fictional merchant internet client"] -->|"DNS lookup - not proxied payment traffic"| DNS["Route 53 - story"]
+  DNS -.->|"Resolves ALB endpoint"| Merchant
+  Merchant -->|"HTTPS payment / UI traffic - story"| ALB
+  subgraph AWSStory["Fictional AWS boundary - no account or resources verified"]
+    WAF["WAF - story"] -.->|"Associated with ALB, not a DNS hop"| ALB["ALB + ACM TLS - story"]
+    subgraph VPC["VPC / private data boundary - subnet and route details unknown"]
+      subgraph EKS["EKS: two AZs claimed in story; managed nodes, VPC CNI, kube-proxy"]
+        Apps["Merchant, payments, fraud and worker workloads - story"]
+      end
+      RDS[("RDS PostgreSQL Multi-AZ - story")]
+    end
+    SQS["SQS - story"]
+    S3["S3 audit exports - story"]
+    CW["CloudWatch logs and metrics - story"]
+    SM["Secrets Manager + workload IAM - mechanism unknown"]
+    Delivery["GitHub Actions builds / ECR artifacts / Argo CD reconciliation - story"]
+  end
+  ALB -->|"Ingress target path unspecified"| Apps
+  Apps -->|"Data path"| RDS
+  Apps -->|"Publish / poll - logical async path"| SQS
+  Apps -->|"Worker exports"| S3
+  Apps -->|"Telemetry path"| CW
+  SM -.->|"Identity / config plane"| Apps
+  Delivery -.->|"Build / deployment control plane"| Apps
+  Legend["STORY / E0: no AWS inspection or provisioning. Region, TLS termination beyond ALB, account split, SGs, route tables, NAT, backup/restore, WAF rules and service identity unverified. No availability or compliance conclusion follows from these boxes."]

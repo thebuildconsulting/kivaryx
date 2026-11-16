@@ -1,0 +1,8 @@
+category,simulated_monthly_usd,notes
+EKS_compute_and_platform,8500,Illustrative scenario allocation not an AWS bill
+Managed_databases_and_cache,3000,Illustrative scenario allocation
+Networking_and_load_balancing,2100,Illustrative scenario allocation
+Observability_and_security,2300,Illustrative scenario allocation
+Fraud_ML_CPU_inference,1100,No default dedicated GPU fleet
+Misc_other,1000,Illustrative scenario allocation
+TOTAL,18000,Fictional planning value only

@@ -1,0 +1,25 @@
+---
+title: "LOCAL TESTED v0.1 - Kivaryx prototype - M0 2026-11-16"
+---
+flowchart LR
+  subgraph Host["Actual review host: macOS arm64 - not CentOS, Docker or kind"]
+    Browser["Local Chrome / synthetic client"]
+    subgraph App["One Uvicorn process at 127.0.0.1:8765 - no authentication boundary"]
+      HTTP["FastAPI routes: HTML, assets and JSON API"]
+      Static["Static HTML + vanilla JS: /, /app, /ops"]
+      Pay["POST /api/payments: merchant lookup, payload hash, replay check"]
+      Risk["In-process deterministic risk_score function - NOT trained ML"]
+      Fake["In-process status decision + random sim_ reference - NOT a PSP service"]
+      Read["Dashboard aggregates, payment detail, merchants and hypotheses"]
+    end
+    DB[("Local SQLite: merchants, transactions, events - synthetic data only")]
+  end
+  Browser -->|"Loopback HTTP - no TLS or credentials"| HTTP
+  HTTP -->|"Serves HTML and JS"| Static
+  HTTP --> Pay
+  HTTP --> Read
+  Pay -->|"Local function call"| Risk
+  Pay -->|"Local branch - no processor network request"| Fake
+  Pay -->|"BEGIN IMMEDIATE: transaction + 3 events, commit"| DB
+  Read -->|"SELECT - merchant filter is not authorization"| DB
+  Legend["OBSERVED: M0-SRC / M0-TEST / M0-HTTP / M0-UI. One ordinary payment exercised. No distributed calls, RDS, SQS, model server, telemetry backend or cloud deployment. SQLite idempotency constraint exists; concurrent/recovery guarantees NOT tested."]

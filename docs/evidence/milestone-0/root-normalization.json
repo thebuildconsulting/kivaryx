@@ -1,0 +1,18 @@
+{
+  "observed_at_utc": "2026-11-16T12:54:47.447748+00:00",
+  "owner_authorization": {
+    "final_project_root": "/Users/dare/Desktop/xterns/darey-new/kivaryx",
+    "public_repository_visibility": "accepted",
+    "milestone_1": "not authorized",
+    "commit_push_tag": "not authorized"
+  },
+  "root_matches_git_root": true,
+  "nested_directory_removed": true,
+  "existing_git_directory_preserved": true,
+  "prototype_original_file_hashes_unchanged": 14,
+  "virtual_environment": "recreated at final root using original resolved package snapshot",
+  "tests": "all 5 existing tests pass, Ran 5 tests in 0.074s; original Starlette/httpx warning remains",
+  "dependency_check": "No broken requirements found.",
+  "archive": "handoff/THE_BUILD_Kivaryx_Complete_Codex_Handoff_v1.zip, gitignored",
+  "remote_mutations": "none"
+}
